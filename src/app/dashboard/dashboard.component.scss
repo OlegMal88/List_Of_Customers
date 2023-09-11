@@ -1,0 +1,28 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.list-without-bullets {
+  list-style-type: none;
+  padding: 0;
+}
+.left-margin {
+  margin-left: 10px;
+}
+
+.header {
+  border-bottom: 1px solid #f0f0f0;
+  height: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__button {
+    height: 100%;
+    width: 150px;
+  }
+}

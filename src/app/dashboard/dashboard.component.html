@@ -1,0 +1,30 @@
+<div class="header">
+  <button nz-button nzType="primary"
+          class="header__button"
+          (click)="addCustomer()">Add Customer +</button>
+</div>
+<div class="grid-container">
+  <div *ngFor="let customer of data$ | async; trackBy: trackBy">
+    <nz-card [nzTitle]="customer?.name" [nzExtra]="actionsTemplate">
+      <ul class="list-without-bullets">
+        <li><span><b>User Name: </b> {{customer?.username}}</span></li>
+        <li><span><b>Email: </b>{{customer?.email}}</span></li>
+        <li><span><b>Phone: </b> {{customer?.phone}}</span></li>
+        <li><span><b>Website: </b> {{customer?.website}}</span></li>
+        <li><span><b>Company: </b> {{customer?.company?.name}}</span></li>
+        <li><span><b>Address: </b> {{getAddress(customer)}}</span></li>
+      </ul>
+
+      <ng-template #actionsTemplate>
+        <button nz-button
+                nzType="default"
+                class="left-margin"
+                (click)="editCustomer(customer)">Edit</button>
+        <button nz-button
+                nzType="default"
+                class="left-margin"
+                (click)="deleteCustomer(customer)">Delete</button>
+      </ng-template>
+    </nz-card>
+  </div>
+</div>
